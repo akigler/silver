@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+import { Footer } from "@/components/Footer"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"

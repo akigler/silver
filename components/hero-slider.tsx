@@ -117,7 +117,7 @@ export function HeroSlider() {
 
               {/* MONSTER HITS Text - responsive positioning */}
               <div className="absolute bottom-20 sm:bottom-16 left-1/2 transform -translate-x-1/2 z-20 text-center px-4">
-                <h1 className="font-[family-name:var(--font-third-rail)] text-2xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-black text-stroke-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] mb-4 sm:mb-8 leading-tight">
+                <h1 className="font-[family-name:var(--font-third-rail)] text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-black text-stroke-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] mb-4 sm:mb-8 leading-tight">
                   {slide.title}
                 </h1>
               </div>
@@ -220,33 +220,28 @@ export function HeroSlider() {
               </div>
 
               {/* Main Content */}
-              <div className="container mx-auto px-2 sm:px-4 h-full flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 py-4 sm:py-8">
-                {/* Product image - centered */}
-                <div className="flex items-center justify-center relative order-1">
+              <div className="container mx-auto px-2 sm:px-4 h-full flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 py-4 sm:py-8">
+                {/* Product image - left side on large screens */}
+                <div className="flex items-center justify-center relative order-1 lg:order-1 lg:flex-1">
                   <img
                     src="/OuterPack.png"
                     alt="Silverpack"
-                    className="relative z-10 w-[70vw] sm:w-[60vw] md:w-[50vw] lg:w-[45vw] xl:w-[40vw] 2xl:w-[35vw] max-w-none object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
+                    className="relative z-10 w-[60vw] sm:w-[65vw] md:w-[55vw] lg:w-[50vw] xl:w-[45vw] 2xl:w-[40vw] max-w-none object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
                   />
                 </div>
 
-                {/* Text and button - centered below image */}
-                <div className="flex-1 text-center space-y-2 sm:space-y-3 md:space-y-4 order-2 relative z-30">
-                    <h1 className="font-impact text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black leading-tight text-black text-stroke-white relative z-30">
+                {/* Text and button - right side on large screens */}
+                <div className="flex-1 text-center lg:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 lg:order-2 lg:flex-1 relative z-30">
+                    <h1 className="font-impact text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black leading-tight text-black text-stroke-white relative z-30">
                       Get Silverpacks<br />
                       Launch Edition<br />
                       Today!
                     </h1>
                   
-                  <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold font-[family-name:var(--font-third-rail)] relative z-30">
+                  <div className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold font-[family-name:var(--font-third-rail)] relative z-30">
                     <span className="text-black text-stroke-white">LIMITED TO </span>
-                    <span className="text-red-600 relative text-stroke-white inline-block">
+                    <span className="text-red-600 text-stroke-white">
                       250
-                      <img 
-                        src="/RedUnderline.png" 
-                        alt="Red underline" 
-                        className="absolute -bottom-1 left-0 w-full h-3 sm:h-4 object-contain z-30"
-                      />
                     </span>
                     <span className="text-black text-stroke-white"> PACKS</span>
                   </div>
