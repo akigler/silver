@@ -104,10 +104,16 @@ export default function ShopPage() {
               <div className="mb-8">
                 <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">Silverpacks Launch Edition</h1>
                 <p className="text-3xl md:text-4xl font-bold text-white mb-6">${basePrice.toFixed(2)}</p>
-                <p className="text-lg md:text-xl text-white leading-relaxed">
+                <p className="text-lg md:text-xl text-white leading-relaxed font-bold">
                   One Silverpacks Launch Edition, including 3 slabbed silver or gold coins. Each pack is guaranteed to
                   contain premium graded coins with a 1/10 chance of pulling a monster hit worth up to $4,000!
                 </p>
+                <div className="mt-4 p-4 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
+                  <p className="text-base md:text-lg text-white leading-relaxed">
+                    <strong>Important:</strong> Packs will ship as a "drop" once all 250 packs sell out. All customers
+                    have equal odds. Must be 18+ to order. No returns on mystery products.
+                  </p>
+                </div>
               </div>
 
               {/* Features */}
@@ -232,13 +238,6 @@ export default function ShopPage() {
                 <span>Secure checkout with Square</span>
               </div>
 
-              {/* Important Info */}
-              <div className="mt-10 p-6 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
-                <p className="text-base md:text-lg text-white">
-                  <strong>Important:</strong> Packs will ship as a "drop" once all 250 packs sell out. All customers
-                  have equal odds. Must be 18+ to order. No returns on mystery products.
-                </p>
-              </div>
             </div>
           </div>
 
