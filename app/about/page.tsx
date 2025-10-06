@@ -1,5 +1,5 @@
 import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+import { Footer } from "@/components/Footer"
 import { FAQItem } from "@/components/faq-item"
 import { BuyCoinsButton } from "@/components/buy-coins-button"
 import { Coins } from "lucide-react"
