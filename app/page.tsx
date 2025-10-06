@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/navigation"
 import { HeroSlider } from "@/components/hero-slider"
 import { EmailSignup } from "@/components/email-signup"
-import { Footer } from "@/components/footer"
+import { Footer } from "@/components/Footer"
 import { Coins } from "lucide-react"
 
 export default function HomePage() {

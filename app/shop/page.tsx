@@ -1,7 +1,7 @@
 "use client"
 
 import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+import { Footer } from "@/components/Footer"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
