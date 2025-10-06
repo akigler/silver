@@ -11,10 +11,10 @@ export function EmailSignup() {
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSe1eY1KvE67tlkl3kVw7_1odLAGDO5qDCBG79En11RdZO0AvQ/viewform?embedded=true"
               width="100%"
-              height="407"
+              height={407}
               frameBorder="0"
-              marginHeight="0"
-              marginWidth="0"
+              marginHeight={0}
+              marginWidth={0}
               className="rounded-lg"
             >
               Loading…
