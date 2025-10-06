@@ -75,8 +75,24 @@ export function HeroSlider() {
         >
           {slide.type === "monster-hits" && (
             <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-r from-cyan-400 via-green-400 to-yellow-400 overflow-hidden">
+              {/* WhiteLightStarburst background - covers entire slide */}
+              <img
+                src="/WhiteLightStarburst.png"
+                alt="White Light Starburst"
+                className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
+                style={{
+                  width: '100vw',
+                  height: '100vh',
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  minWidth: '100%',
+                  minHeight: '100%'
+                }}
+              />
+              
               {/* Sparkling background effect */}
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 z-5">
                 {starPositions.map((star, i) => (
                   <div
                     key={i}
@@ -91,23 +107,23 @@ export function HeroSlider() {
               </div>
 
               {/* Three Coins Image */}
-              <div className="relative z-10 flex items-center justify-center mb-8">
+              <div className="relative z-10 flex items-center justify-center mb-4 sm:mb-8">
                 <img
                   src="/coins3X.png"
                   alt="Three Graded Coins"
-                  className="w-full max-w-4xl md:max-w-5xl object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
+                  className="w-full max-w-3xl sm:max-w-4xl md:max-w-5xl object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
                 />
               </div>
 
-              {/* MONSTER HITS Text - positioned at bottom over coins */}
-              <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 -translate-y-2.5 z-20 text-center">
-                <h1 className="font-[family-name:var(--font-third-rail)] text-5xl md:text-7xl lg:text-8xl font-black text-black text-stroke-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] mb-8 md:whitespace-nowrap">
+              {/* MONSTER HITS Text - responsive positioning */}
+              <div className="absolute bottom-20 sm:bottom-16 left-1/2 transform -translate-x-1/2 z-20 text-center px-4">
+                <h1 className="font-[family-name:var(--font-third-rail)] text-2xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-black text-stroke-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] mb-4 sm:mb-8 leading-tight">
                   {slide.title}
                 </h1>
               </div>
 
-              {/* Buy Button - positioned at bottom */}
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+              {/* Buy Button - responsive positioning */}
+              <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
                 <BuyCoinsButton />
               </div>
             </div>
@@ -115,8 +131,26 @@ export function HeroSlider() {
 
           {slide.type === "three-pouches" && (
             <div className="relative w-full h-full bg-gradient-to-r from-cyan-400 via-green-400 to-yellow-400 overflow-hidden">
+              {/* WhiteLightStarburst background - covers entire slide */}
+              <img
+                src="/WhiteLightStarburst.png"
+                alt="White Light Starburst"
+                className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
+                style={{ 
+                  width: '100vw', 
+                  height: '100vh',
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  minWidth: '100%',
+                  minHeight: '100%',
+                  maxWidth: 'none',
+                  maxHeight: 'none'
+                }}
+              />
+              
               {/* Sparkling background effect */}
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 z-5">
                 {threePouchStars.map((star, i) => (
                   <div
                     key={i}
@@ -154,8 +188,24 @@ export function HeroSlider() {
 
           {slide.type === "single-pouch" && (
             <div className="relative w-full h-full bg-gradient-to-r from-teal-400 via-green-300 to-yellow-400 overflow-hidden">
+              {/* WhiteLightStarburst background - covers entire slide */}
+              <img
+                src="/WhiteLightStarburst.png"
+                alt="White Light Starburst"
+                className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
+                style={{
+                  width: '100vw',
+                  height: '100vh',
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  minWidth: '100%',
+                  minHeight: '100%'
+                }}
+              />
+              
               {/* Sparkling background effect */}
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 z-5">
                 {singlePouchStars.map((star, i) => (
                   <div
                     key={i}
@@ -170,39 +220,39 @@ export function HeroSlider() {
               </div>
 
               {/* Main Content */}
-              <div className="container mx-auto px-2 sm:px-4 h-full flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 md:gap-8 py-4 sm:py-8">
-                {/* Left: Product image */}
-                <div className="flex-1 flex items-center justify-center relative">
+              <div className="container mx-auto px-2 sm:px-4 h-full flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 py-4 sm:py-8">
+                {/* Product image - centered */}
+                <div className="flex items-center justify-center relative order-1">
                   <img
                     src="/OuterPack.png"
                     alt="Silverpack"
-                    className="relative z-10 w-[90vw] sm:w-[80vw] md:w-[60vw] lg:w-[50vw] xl:w-[45vw] 2xl:w-[40vw] max-w-none object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
+                    className="relative z-10 w-[70vw] sm:w-[60vw] md:w-[50vw] lg:w-[45vw] xl:w-[40vw] 2xl:w-[35vw] max-w-none object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
                   />
                 </div>
 
-                {/* Right: Text and button */}
-                <div className="flex-1 text-center md:text-left space-y-3 sm:space-y-4 md:space-y-6">
-                    <h1 className="font-impact text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black leading-tight text-black text-stroke-white">
+                {/* Text and button - centered below image */}
+                <div className="flex-1 text-center space-y-2 sm:space-y-3 md:space-y-4 order-2 relative z-30">
+                    <h1 className="font-impact text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black leading-tight text-black text-stroke-white relative z-30">
                       Get Silverpacks<br />
                       Launch Edition<br />
                       Today!
                     </h1>
                   
-                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-[family-name:var(--font-third-rail)]">
+                  <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold font-[family-name:var(--font-third-rail)] relative z-30">
                     <span className="text-black text-stroke-white">LIMITED TO </span>
                     <span className="text-red-600 relative text-stroke-white inline-block">
                       250
                       <img 
                         src="/RedUnderline.png" 
                         alt="Red underline" 
-                        className="absolute -bottom-1 left-0 w-full h-4 object-contain z-10"
+                        className="absolute -bottom-1 left-0 w-full h-3 sm:h-4 object-contain z-30"
                       />
                     </span>
                     <span className="text-black text-stroke-white"> PACKS</span>
                   </div>
                   
                   {/* Buy Now Button */}
-                  <div className="pt-2 sm:pt-4">
+                  <div className="pt-2 sm:pt-4 relative z-30">
                     <BuyCoinsButton />
                   </div>
                 </div>
