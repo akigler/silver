@@ -75,12 +75,12 @@ export default function ShopPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Product Image */}
-            <div className="space-y-4">
-              <div className="aspect-square rounded-lg overflow-hidden bg-transparent">
+            <div className="space-y-6">
+              <div className="aspect-[4/5] rounded-lg overflow-hidden bg-transparent scale-[0.8]">
                 <img
                   src="/OuterPack.png"
                   alt="Silverpacks Launch Edition"
-                  className="w-full h-full object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
+                  className="w-full h-full object-cover drop-shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
                 />
               </div>
               <div className="grid grid-cols-4 gap-4">
@@ -101,140 +101,140 @@ export default function ShopPage() {
 
             {/* Product Details */}
             <div>
-              <div className="mb-6">
-                <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-black text-stroke-white">Silverpacks Launch Edition</h1>
-                <p className="text-2xl font-bold text-black text-stroke-white mb-4">${basePrice.toFixed(2)}</p>
-                <p className="text-black text-stroke-white leading-relaxed">
+              <div className="mb-8">
+                <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">Silverpacks Launch Edition</h1>
+                <p className="text-3xl md:text-4xl font-bold text-white mb-6">${basePrice.toFixed(2)}</p>
+                <p className="text-lg md:text-xl text-white leading-relaxed">
                   One Silverpacks Launch Edition, including 3 slabbed silver or gold coins. Each pack is guaranteed to
                   contain premium graded coins with a 1/10 chance of pulling a monster hit worth up to $4,000!
                 </p>
               </div>
 
               {/* Features */}
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="flex items-start gap-3">
-                  <ShieldCheck className="w-5 h-5 text-black flex-shrink-0 mt-1" />
+              <div className="grid grid-cols-2 gap-6 mb-10">
+                <div className="flex items-start gap-4">
+                  <ShieldCheck className="w-6 h-6 text-black flex-shrink-0 mt-1" />
                   <div>
-                    <p className="font-semibold text-sm text-black text-stroke-white">Premium Slabs</p>
-                    <p className="text-xs text-black text-stroke-white">NGC, PCGS, CAC, ANACS</p>
+                    <p className="font-semibold text-base md:text-lg text-white">Premium Slabs</p>
+                    <p className="text-sm md:text-base text-white">NGC, PCGS, CAC, ANACS</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Award className="w-5 h-5 text-black flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-4">
+                  <Award className="w-6 h-6 text-black flex-shrink-0 mt-1" />
                   <div>
-                    <p className="font-semibold text-sm text-black text-stroke-white">1/10 Odds</p>
-                    <p className="text-xs text-black text-stroke-white">Monster hit chance</p>
+                    <p className="font-semibold text-base md:text-lg text-white">1/10 Odds</p>
+                    <p className="text-sm md:text-base text-white">Monster hit chance</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Package className="w-5 h-5 text-black flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-4">
+                  <Package className="w-6 h-6 text-black flex-shrink-0 mt-1" />
                   <div>
-                    <p className="font-semibold text-sm text-black text-stroke-white">Limited Edition</p>
-                    <p className="text-xs text-black text-stroke-white">Only 250 available</p>
+                    <p className="font-semibold text-base md:text-lg text-white">Limited Edition</p>
+                    <p className="text-sm md:text-base text-white">Only 250 available</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Truck className="w-5 h-5 text-black flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-4">
+                  <Truck className="w-6 h-6 text-black flex-shrink-0 mt-1" />
                   <div>
-                    <p className="font-semibold text-sm text-black text-stroke-white">Insured Shipping</p>
-                    <p className="text-xs text-black text-stroke-white">USPS Priority Mail</p>
+                    <p className="font-semibold text-base md:text-lg text-white">Insured Shipping</p>
+                    <p className="text-sm md:text-base text-white">USPS Priority Mail</p>
                   </div>
                 </div>
               </div>
 
               {/* Quantity Selector */}
-              <div className="mb-6">
-                <Label className="mb-2 block text-black text-stroke-white">Quantity (Max 10 per order)</Label>
-                <div className="flex items-center gap-4">
+              <div className="mb-8">
+                <Label className="mb-3 block text-lg text-white">Quantity (Max 10 per order)</Label>
+                <div className="flex items-center gap-6">
                   <Button
                     variant="outline"
                     size="icon"
                     onClick={() => handleQuantityChange(-1)}
                     disabled={quantity <= 1}
-                    className="border-border"
+                    className="border-border w-12 h-12"
                   >
-                    <Minus className="w-4 h-4" />
+                    <Minus className="w-5 h-5" />
                   </Button>
-                  <span className="text-2xl font-bold w-12 text-center text-black text-stroke-white">{quantity}</span>
+                  <span className="text-3xl md:text-4xl font-bold w-16 text-center text-white">{quantity}</span>
                   <Button
                     variant="outline"
                     size="icon"
                     onClick={() => handleQuantityChange(1)}
                     disabled={quantity >= maxQuantity}
-                    className="border-border"
+                    className="border-border w-12 h-12"
                   >
-                    <Plus className="w-4 h-4" />
+                    <Plus className="w-5 h-5" />
                   </Button>
                 </div>
               </div>
 
               {/* Promo Code */}
-              <div className="mb-6">
-                <Label htmlFor="promo" className="mb-2 block text-black text-stroke-white">
+              <div className="mb-8">
+                <Label htmlFor="promo" className="mb-3 block text-lg text-white">
                   Promo Code
                 </Label>
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                   <Input
                     id="promo"
                     type="text"
                     placeholder="Enter code"
                     value={promoCode}
                     onChange={(e) => setPromoCode(e.target.value)}
-                    className="flex-1 bg-background border-border"
+                    className="flex-1 bg-background border-border text-lg py-3"
                     disabled={promoApplied}
                   />
                   <Button
                     onClick={applyPromoCode}
                     variant="outline"
                     disabled={promoApplied}
-                    className="border-border bg-transparent"
+                    className="border-border bg-transparent px-6 py-3 text-lg"
                   >
                     Apply
                   </Button>
                 </div>
                 {promoApplied && (
-                  <p className="text-black text-stroke-white text-sm mt-2">Promo code applied! ${discount} off per pack</p>
+                  <p className="text-white text-base mt-3">Promo code applied! ${discount} off per pack</p>
                 )}
               </div>
 
               {/* Price Summary */}
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 mb-6 border border-white/30">
-                <div className="space-y-2 mb-4">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-black text-stroke-white">Subtotal</span>
-                    <span className="font-semibold text-black text-stroke-white">${subtotal.toFixed(2)}</span>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-8 mb-8 border border-white/30">
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between text-base md:text-lg">
+                    <span className="text-white">Subtotal</span>
+                    <span className="font-semibold text-white">${subtotal.toFixed(2)}</span>
                   </div>
                   {discount > 0 && (
-                    <div className="flex justify-between text-sm">
-                      <span className="text-black text-stroke-white">Discount</span>
-                      <span className="font-semibold text-black text-stroke-white">-${(discount * quantity).toFixed(2)}</span>
+                    <div className="flex justify-between text-base md:text-lg">
+                      <span className="text-white">Discount</span>
+                      <span className="font-semibold text-white">-${(discount * quantity).toFixed(2)}</span>
                     </div>
                   )}
-                  <div className="flex justify-between text-sm">
-                    <span className="text-black text-stroke-white">Shipping</span>
-                    <span className="font-semibold text-black text-stroke-white">${shipping.toFixed(2)}</span>
+                  <div className="flex justify-between text-base md:text-lg">
+                    <span className="text-white">Shipping</span>
+                    <span className="font-semibold text-white">${shipping.toFixed(2)}</span>
                   </div>
-                  <div className="border-t border-black/30 pt-2 flex justify-between">
-                    <span className="font-bold text-black text-stroke-white">Total</span>
-                    <span className="font-bold text-xl text-black text-stroke-white">${(total + shipping).toFixed(2)}</span>
+                  <div className="border-t border-white/30 pt-3 flex justify-between">
+                    <span className="font-bold text-lg md:text-xl text-white">Total</span>
+                    <span className="font-bold text-2xl md:text-3xl text-white">${(total + shipping).toFixed(2)}</span>
                   </div>
                 </div>
               </div>
 
               {/* Checkout Button */}
-              <Button className="w-full bg-silver text-background hover:bg-silver-light font-semibold text-lg py-6 mb-4">
+              <Button className="w-full bg-silver text-background hover:bg-silver-light font-semibold text-xl py-8 mb-6">
                 Proceed to Checkout
               </Button>
 
               {/* Square Badge */}
-              <div className="flex items-center justify-center gap-2 text-sm text-black text-stroke-white">
-                <ShieldCheck className="w-4 h-4" />
+              <div className="flex items-center justify-center gap-3 text-base text-white">
+                <ShieldCheck className="w-5 h-5" />
                 <span>Secure checkout with Square</span>
               </div>
 
               {/* Important Info */}
-              <div className="mt-8 p-4 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
-                <p className="text-sm text-black text-stroke-white">
+              <div className="mt-10 p-6 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
+                <p className="text-base md:text-lg text-white">
                   <strong>Important:</strong> Packs will ship as a "drop" once all 250 packs sell out. All customers
                   have equal odds. Must be 18+ to order. No returns on mystery products.
                 </p>
@@ -243,21 +243,21 @@ export default function ShopPage() {
           </div>
 
           {/* Additional Info */}
-          <div className="mt-20 grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
-              <Package className="w-12 h-12 mx-auto mb-4 text-black" />
-              <h3 className="font-serif text-xl font-bold mb-2 text-black text-stroke-white">What's Inside</h3>
-              <p className="text-sm text-black text-stroke-white">3 premium slabbed coins from trusted grading companies</p>
+          <div className="mt-24 grid md:grid-cols-3 gap-10">
+            <div className="text-center p-8 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
+              <Package className="w-16 h-16 mx-auto mb-6 text-black" />
+              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-white">What's Inside</h3>
+              <p className="text-base md:text-lg text-white">3 premium slabbed coins from trusted grading companies</p>
             </div>
-            <div className="text-center p-6 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
-              <Award className="w-12 h-12 mx-auto mb-4 text-black" />
-              <h3 className="font-serif text-xl font-bold mb-2 text-black text-stroke-white">Monster Hits</h3>
-              <p className="text-sm text-black text-stroke-white">1/10 packs contain gold coins or rare Carson City Morgans</p>
+            <div className="text-center p-8 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
+              <Award className="w-16 h-16 mx-auto mb-6 text-black" />
+              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-white">Monster Hits</h3>
+              <p className="text-base md:text-lg text-white">1/10 packs contain gold coins or rare Carson City Morgans</p>
             </div>
-            <div className="text-center p-6 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
-              <Truck className="w-12 h-12 mx-auto mb-4 text-black" />
-              <h3 className="font-serif text-xl font-bold mb-2 text-black text-stroke-white">Insured Shipping</h3>
-              <p className="text-sm text-black text-stroke-white">$15 flat rate includes full insurance via USPS Priority</p>
+            <div className="text-center p-8 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
+              <Truck className="w-16 h-16 mx-auto mb-6 text-black" />
+              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-white">Insured Shipping</h3>
+              <p className="text-base md:text-lg text-white">$15 flat rate includes full insurance via USPS Priority</p>
             </div>
           </div>
         </div>
