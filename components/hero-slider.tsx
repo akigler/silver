@@ -73,21 +73,21 @@ export function HeroSlider() {
             
             {/* Buy Now Button Overlay - Different positions for each slide */}
             {slide.id === 1 && (
-              <div className="absolute left-1/2 transform -translate-x-1/2 z-20 slide-1-button" style={{ bottom: '8px' }}>
+              <div className="absolute left-1/2 transform -translate-x-1/2 z-20 slide-1-button" style={{ bottom: '4px' }}>
                 <div className="scale-50 lg:scale-100 sm:mb-2">
                   <BuyCoinsButton />
                 </div>
               </div>
             )}
             {slide.id === 2 && (
-              <div className="absolute left-1/2 transform -translate-x-1/2 z-20 slide-2-button" style={{ bottom: '0px' }}>
+              <div className="absolute left-1/2 transform -translate-x-1/2 z-20 slide-2-button" style={{ bottom: '-4px' }}>
                 <div className="scale-50 lg:scale-100 sm:mb-2">
                   <BuyCoinsButton />
                 </div>
               </div>
             )}
             {slide.id === 3 && (
-              <div className="absolute left-2/3 -translate-x-1/3 z-20 slide-3-button" style={{ bottom: '8px' }}>
+              <div className="absolute left-2/3 -translate-x-1/3 z-20 slide-3-button" style={{ bottom: '4px' }}>
                 <div className="scale-50 lg:scale-100 sm:mb-2">
                   <BuyCoinsButton />
                 </div>
