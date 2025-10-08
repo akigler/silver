@@ -73,6 +73,46 @@ export default function HomePage() {
             >
               @silverpacksrips
             </a>
+            
+            {/* Social Media Icons */}
+            <div className="flex justify-center gap-6 mt-6">
+              <a
+                href="https://www.youtube.com/@Silverpacks"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-silver transition-colors"
+                aria-label="YouTube"
+              >
+                <img src="/socialIcons/icons8-youtube-50.svg" alt="YouTube" className="w-8 h-8" />
+              </a>
+              <a
+                href="http://facebook.com/silverpacksrips"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-silver transition-colors"
+                aria-label="Facebook"
+              >
+                <img src="/socialIcons/icons8-facebook-50.svg" alt="Facebook" className="w-8 h-8" />
+              </a>
+              <a
+                href="https://instagram.com/silverpacksrips"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-silver transition-colors"
+                aria-label="Instagram"
+              >
+                <img src="/socialIcons/icons8-instagram-50.svg" alt="Instagram" className="w-8 h-8" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@silverpacksrips"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-silver transition-colors"
+                aria-label="TikTok"
+              >
+                <img src="/socialIcons/icons8-tiktok-50.svg" alt="TikTok" className="w-8 h-8" />
+              </a>
+            </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
