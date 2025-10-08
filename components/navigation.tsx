@@ -19,10 +19,10 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 )
 
 const socialLinks = [
-  { icon: Youtube, href: "https://youtube.com/@silverpacksrips", label: "YouTube" },
-  { icon: Facebook, href: "https://facebook.com/silverpacks", label: "Facebook" },
+  { icon: Youtube, href: "https://www.youtube.com/@Silverpacks", label: "YouTube" },
+  { icon: Facebook, href: "http://facebook.com/silverpacksrips", label: "Facebook" },
   { icon: Instagram, href: "https://instagram.com/silverpacksrips", label: "Instagram" },
-  { icon: TikTokIcon, href: "https://tiktok.com/@silverpacksrips", label: "TikTok" },
+  { icon: TikTokIcon, href: "https://www.tiktok.com/@silverpacksrips", label: "TikTok" },
 ]
 
 const navLinks = [
@@ -42,7 +42,7 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/logo.jpg"
+              src="/logoBig.png"
               alt="Silverpacks"
               width={120}
               height={120}

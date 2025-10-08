@@ -43,8 +43,8 @@ export default function ContactPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <button
                 onClick={() => handleCardClick("redemption")}
-                className={`group p-8 bg-muted rounded-lg hover:bg-muted/80 transition-all hover:scale-105 ${
-                  activeCard === "redemption" ? "ring-4 ring-blue-500 bg-blue-50" : ""
+                className={`group p-8 bg-white border-2 border-gray-200 rounded-2xl hover:border-silver hover:shadow-lg transition-all hover:scale-105 ${
+                  activeCard === "redemption" ? "ring-4 ring-blue-500 bg-blue-50 border-blue-300" : ""
                 }`}
               >
                 <div className="flex flex-col items-center text-center">
@@ -58,8 +58,8 @@ export default function ContactPage() {
 
               <button
                 onClick={() => handleCardClick("contact")}
-                className={`group p-8 bg-muted rounded-lg hover:bg-muted/80 transition-all hover:scale-105 ${
-                  activeCard === "contact" ? "ring-4 ring-blue-500 bg-blue-50" : ""
+                className={`group p-8 bg-white border-2 border-gray-200 rounded-2xl hover:border-silver hover:shadow-lg transition-all hover:scale-105 ${
+                  activeCard === "contact" ? "ring-4 ring-blue-500 bg-blue-50 border-blue-300" : ""
                 }`}
               >
                 <div className="flex flex-col items-center text-center">
