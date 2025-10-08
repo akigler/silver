@@ -7,17 +7,17 @@ import { BuyCoinsButton } from "@/components/buy-coins-button"
 const slides = [
   {
     id: 1,
-    type: "three-pouches",
+    image: "/s1.png",
     title: "Feeling Lucky?",
   },
   {
     id: 2,
-    type: "monster-hits",
+    image: "/s2.png",
     title: "MONSTER HITS 1 IN 10 PACKS",
   },
   {
     id: 3,
-    type: "single-pouch",
+    image: "/s3.png",
     title: "Get Silverpacks Launch Edition Today!",
     limitText: "LIMITED TO 250 PACKS",
   },
@@ -25,30 +25,12 @@ const slides = [
 
 export function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [starPositions, setStarPositions] = useState<Array<{left: number, top: number, delay: number}>>([])
-  const [threePouchStars, setThreePouchStars] = useState<Array<{left: number, top: number, delay: number}>>([])
-  const [singlePouchStars, setSinglePouchStars] = useState<Array<{left: number, top: number, delay: number}>>([])
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 5000)
     return () => clearInterval(timer)
-  }, [])
-
-  useEffect(() => {
-    // Generate star positions once on client side to avoid hydration mismatch
-    const generateStarPositions = (count: number) => {
-      return Array.from({ length: count }, () => ({
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        delay: Math.random() * 3
-      }))
-    }
-    
-    setStarPositions(generateStarPositions(50))
-    setThreePouchStars(generateStarPositions(30))
-    setSinglePouchStars(generateStarPositions(30))
   }, [])
 
   const goToSlide = (index: number) => {
@@ -64,7 +46,15 @@ export function HeroSlider() {
   }
 
   return (
-    <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] overflow-hidden bg-gradient-to-b from-gray-300 via-gray-100 to-white">
+    <>
+      <style jsx>{`
+        @media (min-width: 640px) {
+          .slide-1-button { bottom: 56px !important; }
+          .slide-2-button { bottom: 50px !important; }
+          .slide-3-button { bottom: 64px !important; }
+        }
+      `}</style>
+      <div className="relative w-full aspect-video max-w-screen-xl mx-auto overflow-hidden mt-4 sm:mt-8">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -73,187 +63,37 @@ export function HeroSlider() {
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          {slide.type === "monster-hits" && (
-            <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-r from-cyan-400 via-green-400 to-yellow-400 overflow-hidden">
-              {/* WhiteLightStarburst background - covers entire slide */}
-              <img
-                src="/WhiteLightStarburst.png"
-                alt="White Light Starburst"
-                className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
-                style={{
-                  width: '100vw',
-                  height: '100vh',
-                  left: '50%',
-                  top: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  minWidth: '100%',
-                  minHeight: '100%'
-                }}
-              />
-              
-              {/* Sparkling background effect */}
-              <div className="absolute inset-0 z-5">
-                {starPositions.map((star, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-1 h-1 bg-white rounded-full opacity-60 animate-pulse"
-                    style={{
-                      left: `${star.left}%`,
-                      top: `${star.top}%`,
-                      animationDelay: `${star.delay}s`,
-                    }}
-                  />
-                ))}
-              </div>
-
-              {/* Three Coins Image */}
-              <div className="relative z-10 flex items-center justify-center mb-4 sm:mb-8">
-                <img
-                  src="/coins3X.png"
-                  alt="Three Graded Coins"
-                  className="w-full max-w-3xl sm:max-w-4xl md:max-w-5xl object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
-                />
-              </div>
-
-              {/* MONSTER HITS Text - responsive positioning */}
-              <div className="absolute bottom-20 sm:bottom-16 left-1/2 transform -translate-x-1/2 z-20 text-center px-4">
-                <h1 className="font-[family-name:var(--font-third-rail)] text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-black text-stroke-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] mb-4 sm:mb-8 leading-tight">
-                  {slide.title}
-                </h1>
-              </div>
-
-              {/* Buy Button - responsive positioning */}
-              <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-                <BuyCoinsButton />
-              </div>
-            </div>
-          )}
-
-          {slide.type === "three-pouches" && (
-            <div className="relative w-full h-full bg-gradient-to-r from-cyan-400 via-green-400 to-yellow-400 overflow-hidden">
-              {/* WhiteLightStarburst background - covers entire slide */}
-              <img
-                src="/WhiteLightStarburst.png"
-                alt="White Light Starburst"
-                className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
-                style={{ 
-                  width: '100vw', 
-                  height: '100vh',
-                  left: '50%',
-                  top: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  minWidth: '100%',
-                  minHeight: '100%',
-                  maxWidth: 'none',
-                  maxHeight: 'none'
-                }}
-              />
-              
-              {/* Sparkling background effect */}
-              <div className="absolute inset-0 z-5">
-                {threePouchStars.map((star, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-1 h-1 bg-white rounded-full opacity-60 animate-pulse"
-                    style={{
-                      left: `${star.left}%`,
-                      top: `${star.top}%`,
-                      animationDelay: `${star.delay}s`,
-                    }}
-                  />
-                ))}
-              </div>
-
-              {/* Silverback3X Image - positioned lower and much bigger */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                <img
-                  src="/silverback3X.png"
-                  alt="Silverback3X"
-                  className="w-full h-full object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
-                  style={{ 
-                    width: '95vw', 
-                    height: '70vh',
-                    maxWidth: 'none',
-                    maxHeight: 'none'
-                  }}
-                />
-              </div>
-
-              {/* Buy Button - positioned much lower */}
-              <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-20 text-center">
-                <BuyCoinsButton />
-              </div>
-            </div>
-          )}
-
-          {slide.type === "single-pouch" && (
-            <div className="relative w-full h-full bg-gradient-to-r from-teal-400 via-green-300 to-yellow-400 overflow-hidden">
-              {/* WhiteLightStarburst background - covers entire slide */}
-              <img
-                src="/WhiteLightStarburst.png"
-                alt="White Light Starburst"
-                className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
-                style={{
-                  width: '100vw',
-                  height: '100vh',
-                  left: '50%',
-                  top: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  minWidth: '100%',
-                  minHeight: '100%'
-                }}
-              />
-              
-              {/* Sparkling background effect */}
-              <div className="absolute inset-0 z-5">
-                {singlePouchStars.map((star, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-1 h-1 bg-white rounded-full opacity-60 animate-pulse"
-                    style={{
-                      left: `${star.left}%`,
-                      top: `${star.top}%`,
-                      animationDelay: `${star.delay}s`,
-                    }}
-                  />
-                ))}
-              </div>
-
-              {/* Main Content */}
-              <div className="container mx-auto px-2 sm:px-4 h-full flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 py-4 sm:py-8">
-                {/* Product image - left side on large screens */}
-                <div className="flex items-center justify-center relative order-1 lg:order-1 lg:flex-1">
-                  <img
-                    src="/OuterPack.png"
-                    alt="Silverpack"
-                    className="relative z-10 w-[60vw] sm:w-[65vw] md:w-[55vw] lg:w-[50vw] xl:w-[45vw] 2xl:w-[40vw] max-w-none object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
-                  />
-                </div>
-
-                {/* Text and button - right side on large screens */}
-                <div className="flex-1 text-center lg:text-left space-y-2 sm:space-y-3 md:space-y-4 order-2 lg:order-2 lg:flex-1 relative z-30">
-                    <h1 className="font-impact text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black leading-tight text-black text-stroke-white relative z-30">
-                      Get Silverpacks<br />
-                      Launch Edition<br />
-                      Today!
-                    </h1>
-                  
-                  <div className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold font-[family-name:var(--font-third-rail)] relative z-30">
-                    <span className="text-black text-stroke-white">LIMITED TO </span>
-                    <span className="text-red-600 text-stroke-white">
-                      250
-                    </span>
-                    <span className="text-black text-stroke-white"> PACKS</span>
-                  </div>
-                  
-                  {/* Buy Now Button */}
-                  <div className="pt-2 sm:pt-4 relative z-30">
-                    <BuyCoinsButton />
-                  </div>
+          <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+            {/* Main Image - fills container perfectly */}
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover object-center"
+            />
+            
+            {/* Buy Now Button Overlay - Different positions for each slide */}
+            {slide.id === 1 && (
+              <div className="absolute left-1/2 transform -translate-x-1/2 z-20 slide-1-button" style={{ bottom: '8px' }}>
+                <div className="scale-50 lg:scale-100 sm:mb-2">
+                  <BuyCoinsButton />
                 </div>
               </div>
-            </div>
-          )}
+            )}
+            {slide.id === 2 && (
+              <div className="absolute left-1/2 transform -translate-x-1/2 z-20 slide-2-button" style={{ bottom: '0px' }}>
+                <div className="scale-50 lg:scale-100 sm:mb-2">
+                  <BuyCoinsButton />
+                </div>
+              </div>
+            )}
+            {slide.id === 3 && (
+              <div className="absolute left-2/3 -translate-x-1/3 z-20 slide-3-button" style={{ bottom: '8px' }}>
+                <div className="scale-50 lg:scale-100 sm:mb-2">
+                  <BuyCoinsButton />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       ))}
 
@@ -287,5 +127,6 @@ export function HeroSlider() {
         ))}
       </div>
     </div>
+    </>
   )
 }
