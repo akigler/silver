@@ -156,36 +156,37 @@ function RedemptionForm() {
     setErrorMessage("")
 
     try {
+      // Google Form submission URL for redemption form
+      const GOOGLE_FORM_URL = process.env.NEXT_PUBLIC_GOOGLE_FORM_REDEMPTION_URL || "YOUR_REDEMPTION_GOOGLE_FORM_URL_HERE"
+      
       const formDataToSend = new FormData()
-      formDataToSend.append("code", code)
-      formDataToSend.append("firstName", formData.firstName)
-      formDataToSend.append("lastName", formData.lastName)
-      formDataToSend.append("email", formData.email)
-      formDataToSend.append("phone", formData.phone)
-      formDataToSend.append("address", formData.address)
-      formDataToSend.append("address2", formData.address2)
-      formDataToSend.append("city", formData.city)
-      formDataToSend.append("state", formData.state)
-      formDataToSend.append("zipCode", formData.zipCode)
+      formDataToSend.append("entry.XXXXXXX", code) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.firstName) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.lastName) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.email) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.phone) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.address) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.address2) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.city) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.state) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.zipCode) // Replace XXXXXXX with actual entry ID
       if (image) {
-        formDataToSend.append("image", image)
+        formDataToSend.append("entry.XXXXXXX", image) // Replace XXXXXXX with actual entry ID
       }
 
-      const response = await fetch("/api/submit-redemption", {
+      const response = await fetch(GOOGLE_FORM_URL, {
         method: "POST",
+        mode: "no-cors", // This helps with CORS issues
         body: formDataToSend,
       })
 
-      if (response.ok) {
-        setStatus("success")
-      } else {
-        const data = await response.json()
-        setStatus("error")
-        setErrorMessage(data.error || "Failed to submit redemption. Please try again.")
-      }
+      // With no-cors mode, we can't check response.ok, so we'll assume success
+      setStatus("success")
+      
     } catch (error) {
+      console.error("Redemption form submission error:", error)
       setStatus("error")
-      setErrorMessage("Network error. Please try again.")
+      setErrorMessage("Network error. Please check your connection and try again.")
     }
   }
 
@@ -390,23 +391,30 @@ function ContactForm() {
     setErrorMessage("")
 
     try {
-      const response = await fetch("/api/contact", {
+      // Google Form submission URL for contact form
+      const GOOGLE_FORM_URL = process.env.NEXT_PUBLIC_GOOGLE_FORM_CONTACT_URL || "YOUR_CONTACT_GOOGLE_FORM_URL_HERE"
+      
+      // Create form data for Google Forms
+      const formDataToSend = new FormData()
+      formDataToSend.append("entry.XXXXXXX", formData.firstName) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.lastName) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.email) // Replace XXXXXXX with actual entry ID
+      formDataToSend.append("entry.XXXXXXX", formData.message) // Replace XXXXXXX with actual entry ID
+
+      const response = await fetch(GOOGLE_FORM_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        mode: "no-cors", // This helps with CORS issues
+        body: formDataToSend,
       })
 
-      if (response.ok) {
-        setStatus("success")
-        setFormData({ firstName: "", lastName: "", email: "", message: "" })
-      } else {
-        const data = await response.json()
-        setStatus("error")
-        setErrorMessage(data.error || "Failed to send message. Please try again.")
-      }
+      // With no-cors mode, we can't check response.ok, so we'll assume success
+      setStatus("success")
+      setFormData({ firstName: "", lastName: "", email: "", message: "" })
+      
     } catch (error) {
+      console.error("Contact form submission error:", error)
       setStatus("error")
-      setErrorMessage("Network error. Please try again.")
+      setErrorMessage("Network error. Please check your connection and try again.")
     }
   }
 

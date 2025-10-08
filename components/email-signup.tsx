@@ -26,8 +26,8 @@ export function EmailSignup() {
     setErrorMessage("")
 
     try {
-      // Google Form submission URL - replace with your actual form URL
-      const GOOGLE_FORM_URL = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || "YOUR_GOOGLE_FORM_SUBMISSION_URL_HERE"
+      // Google Form submission URL for email signup
+      const GOOGLE_FORM_URL = process.env.NEXT_PUBLIC_GOOGLE_FORM_EMAIL_URL || "YOUR_EMAIL_SIGNUP_GOOGLE_FORM_URL_HERE"
       
       // Create form data for Google Forms
       const formData = new FormData()
