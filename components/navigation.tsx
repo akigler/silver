@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X, Youtube, Facebook, Instagram } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -40,7 +41,13 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="text-3xl md:text-4xl font-[family-name:var(--font-third-rail)] font-bold text-silver">Silverpacks</div>
+            <Image
+              src="/logo.jpg"
+              alt="Silverpacks"
+              width={120}
+              height={120}
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
